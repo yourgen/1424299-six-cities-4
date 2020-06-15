@@ -1,8 +1,7 @@
 import React from "react";
 
-const Main = (props) => {
-  // eslint-disable-next-line react/prop-types
-  const {rentOffers} = props;
+// eslint-disable-next-line react/prop-types
+const Main = ({rentOffers}) => {
 
   return (
     <div className="page page--gray page--main">
