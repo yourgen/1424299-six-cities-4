@@ -8,14 +8,13 @@ const Settings = {
     `Wood and stone place`,
     `Canal View Prinsengracht`,
     `Nice, cozy, warm big bed apartment`
-  ],
-  RENT_OFFERS_COUNT: 100500
+  ]
 };
 
 ReactDOM.render(
     <App
       rentOffers={Settings.RENT_OFFERS}
-      rentOffersCount={Settings.RENT_OFFERS_COUNT}
+      rentOffersCount={Settings.RENT_OFFERS.length}
     />,
     document.querySelector(`#root`)
 );
