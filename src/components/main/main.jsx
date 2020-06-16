@@ -1,9 +1,9 @@
 import React from "react";
 import PlaceCard from "../place-card/place-card.jsx";
 
-// eslint-disable-next-line react/prop-types
-const Main = ({rentOffers, rentOffersCount}) => {
+import PropTypes from "prop-types";
 
+const Main = ({rentOffers, rentOffersCount}) => {
   return (
     <div className="page page--gray page--main">
       <header className="header">
@@ -99,7 +99,8 @@ const Main = ({rentOffers, rentOffersCount}) => {
                 {rentOffers.map((rentOffer) => {
                   return (
                     <PlaceCard
-                      rentOffer={rentOffer}
+                      key = {rentOffer.id}
+                      rentOfferTitle={rentOffer.title}
                     />
                   );
                 })}
@@ -113,6 +114,16 @@ const Main = ({rentOffers, rentOffersCount}) => {
       </main>
     </div>
   );
+};
+
+Main.propTypes = {
+  rentOffers: PropTypes.arrayOf(
+      PropTypes.shape({
+        id: PropTypes.string.isRequired,
+        title: PropTypes.string.isRequired
+      })
+  ).isRequired,
+  rentOffersCount: PropTypes.number.isRequired,
 };
 
 export default Main;

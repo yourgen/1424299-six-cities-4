@@ -4,10 +4,19 @@ import App from "./components/app/app.jsx";
 
 const Settings = {
   RENT_OFFERS: [
-    `Beautiful & luxurious apartment at great location`,
-    `Wood and stone place`,
-    `Canal View Prinsengracht`,
-    `Nice, cozy, warm big bed apartment`
+    {
+      id: Math.random().toString(),
+      title: `Beautiful & luxurious apartment at great location`,
+    }, {
+      id: Math.random().toString(),
+      title: `Wood and stone place`,
+    }, {
+      id: Math.random().toString(),
+      title: `Canal View Prinsengracht`,
+    }, {
+      id: Math.random().toString(),
+      title: `Nice, cozy, warm big bed apartment`,
+    }
   ]
 };
 

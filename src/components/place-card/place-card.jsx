@@ -1,6 +1,8 @@
 import React from "react";
 
-const PlaceCard = ({rentOffer}) => {
+import PropTypes from "prop-types";
+
+const PlaceCard = ({rentOfferTitle}) => {
   return (
     <article className="cities__place-card place-card">
       <div className="place-card__mark">
@@ -31,12 +33,16 @@ const PlaceCard = ({rentOffer}) => {
           </div>
         </div>
         <h2 className="place-card__name">
-          <a href="#">{rentOffer}</a>
+          <a href="#">{rentOfferTitle}</a>
         </h2>
         <p className="place-card__type">Apartment</p>
       </div>
     </article>
   );
+};
+
+PlaceCard.propTypes = {
+  rentOfferTitle: PropTypes.string.isRequired,
 };
 
 export default PlaceCard;
