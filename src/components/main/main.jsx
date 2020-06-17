@@ -3,7 +3,7 @@ import PlaceCard from "../place-card/place-card.jsx";
 
 import PropTypes from "prop-types";
 
-const Main = ({rentOffers, rentOffersCount}) => {
+const Main = ({rentOffers, rentOffersCount, onHeaderBtnClick}) => {
   return (
     <div className="page page--gray page--main">
       <header className="header">
@@ -101,6 +101,7 @@ const Main = ({rentOffers, rentOffersCount}) => {
                     <PlaceCard
                       key = {rentOffer.id}
                       rentOfferTitle={rentOffer.title}
+                      onHeaderBtnClick={onHeaderBtnClick}
                     />
                   );
                 })}
@@ -124,6 +125,7 @@ Main.propTypes = {
       })
   ).isRequired,
   rentOffersCount: PropTypes.number.isRequired,
+  onHeaderBtnClick: PropTypes.func.isRequired,
 };
 
 export default Main;
