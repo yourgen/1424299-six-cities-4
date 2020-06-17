@@ -8,7 +8,7 @@ it(`Render PlaceCard`, () => {
   const tree = renderer
     .create(<PlaceCard
       rentOfferTitle={TEST_DATA_TITLE}
-      onHeaderBtnClick={() => {}}
+      onCardTitleClick={() => {}}
     />)
     .toJSON();
 

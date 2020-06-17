@@ -3,14 +3,14 @@ import Main from "../main/main.jsx";
 
 import PropTypes from "prop-types";
 
-const headerBtnHandler = () => {};
+const cardTitleHandler = () => {};
 
 const App = ({rentOffers, rentOffersCount}) => {
   return (
     <Main
       rentOffers={rentOffers}
       rentOffersCount={rentOffersCount}
-      onHeaderBtnClick={headerBtnHandler}
+      onCardTitleClick={cardTitleHandler}
     />
   );
 };

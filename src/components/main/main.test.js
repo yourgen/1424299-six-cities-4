@@ -25,7 +25,7 @@ it(`Render Main`, () => {
     .create(<Main
       rentOffers={TestData.RENT_OFFERS}
       rentOffersCount={TestData.RENT_OFFERS.length}
-      onHeaderBtnClick={() => {}}
+      onCardTitleClick={() => {}}
     />)
     .toJSON();
 
