@@ -2,7 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom";
 import App from "./components/app/app.jsx";
 
-const Settings = {
+const MockData = {
   RENT_OFFERS: [
     {
       id: Math.random().toString(),
@@ -22,8 +22,8 @@ const Settings = {
 
 ReactDOM.render(
     <App
-      rentOffers={Settings.RENT_OFFERS}
-      rentOffersCount={Settings.RENT_OFFERS.length}
+      rentOffers={MockData.RENT_OFFERS}
+      rentOffersCount={MockData.RENT_OFFERS.length}
     />,
     document.querySelector(`#root`)
 );
