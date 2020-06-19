@@ -36,7 +36,7 @@ export default [
     id: Math.random().toString(),
     title: `Nice, cozy, warm big bed apartment`,
     img: {
-      src: `img/apartment-04.jpg`,
+      src: `img/apartment-01.jpg`,
       alt: `Place image`
     },
     price: `150`,

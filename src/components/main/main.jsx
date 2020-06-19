@@ -3,7 +3,7 @@ import PlaceCard from "../place-card/place-card.jsx";
 
 import PropTypes from "prop-types";
 
-const Main = ({rentOffers, rentOffersCount, onCardTitleClick}) => {
+const Main = ({rentOffers, rentOffersCount, onCardTitleClick, onCardHover}) => {
   return (
     <div className="page page--gray page--main">
       <header className="header">
@@ -100,8 +100,9 @@ const Main = ({rentOffers, rentOffersCount, onCardTitleClick}) => {
                   return (
                     <PlaceCard
                       key = {rentOffer.id}
-                      rentOfferTitle={rentOffer.title}
+                      rentOffer={rentOffer}
                       onCardTitleClick={onCardTitleClick}
+                      onCardHover={onCardHover}
                     />
                   );
                 })}
@@ -121,11 +122,20 @@ Main.propTypes = {
   rentOffers: PropTypes.arrayOf(
       PropTypes.shape({
         id: PropTypes.string.isRequired,
-        title: PropTypes.string.isRequired
+        title: PropTypes.string.isRequired,
+        img: PropTypes.shape({
+          src: PropTypes.string.isRequired,
+          alt: PropTypes.string.isRequired,
+        }).isRequired,
+        price: PropTypes.string.isRequired,
+        type: PropTypes.string.isRequired,
+        rating: PropTypes.number.isRequired,
+        isPremium: PropTypes.bool.isRequired,
       })
   ).isRequired,
   rentOffersCount: PropTypes.number.isRequired,
   onCardTitleClick: PropTypes.func.isRequired,
+  onCardHover: PropTypes.func.isRequired,
 };
 
 export default Main;
