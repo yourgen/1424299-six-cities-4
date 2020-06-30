@@ -4,7 +4,6 @@ import Main from "../main/main.jsx";
 import PropTypes from "prop-types";
 
 const handleCardTitleClick = () => {};
-const handleCardHover = () => {};
 
 const App = ({rentOffers, rentOffersCount}) => {
   return (
@@ -12,7 +11,6 @@ const App = ({rentOffers, rentOffersCount}) => {
       rentOffers={rentOffers}
       rentOffersCount={rentOffersCount}
       onCardTitleClick={handleCardTitleClick}
-      onCardHover={handleCardHover}
     />
   );
 };
@@ -34,7 +32,6 @@ App.propTypes = {
   ).isRequired,
   rentOffersCount: PropTypes.number.isRequired,
   onCardTitleClick: PropTypes.func.isRequired,
-  onCardHover: PropTypes.func.isRequired,
 };
 
 export default App;

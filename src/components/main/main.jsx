@@ -3,7 +3,7 @@ import PlacesList from "../places-list/places-list.jsx";
 
 import PropTypes from "prop-types";
 
-const Main = ({rentOffers, rentOffersCount, onCardTitleClick, onCardHover}) => {
+const Main = ({rentOffers, rentOffersCount, onCardTitleClick}) => {
   return (
     <div className="page page--gray page--main">
       <header className="header">
@@ -95,11 +95,10 @@ const Main = ({rentOffers, rentOffersCount, onCardTitleClick, onCardHover}) => {
                 </select> */}
 
               </form>
-              
+
               <PlacesList
                 rentOffers={rentOffers}
                 onCardTitleClick={onCardTitleClick}
-                onCardHover={onCardHover}
               />
             </section>
             <div className="cities__right-section">
@@ -129,7 +128,6 @@ Main.propTypes = {
   ).isRequired,
   rentOffersCount: PropTypes.number.isRequired,
   onCardTitleClick: PropTypes.func.isRequired,
-  onCardHover: PropTypes.func.isRequired,
 };
 
 export default Main;
