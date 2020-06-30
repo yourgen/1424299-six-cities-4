@@ -5,11 +5,10 @@ import PropTypes from "prop-types";
 
 const handleCardTitleClick = () => {};
 
-const App = ({rentOffers, rentOffersCount}) => {
+const App = ({rentOffers}) => {
   return (
     <Main
       rentOffers={rentOffers}
-      rentOffersCount={rentOffersCount}
       onCardTitleClick={handleCardTitleClick}
     />
   );
@@ -29,8 +28,7 @@ App.propTypes = {
         rating: PropTypes.number.isRequired,
         isPremium: PropTypes.bool.isRequired,
       })
-  ).isRequired,
-  rentOffersCount: PropTypes.number.isRequired,
+  ).isRequired
 };
 
 export default App;

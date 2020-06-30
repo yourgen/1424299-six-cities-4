@@ -6,7 +6,6 @@ import offers from "./mocks/offers.js";
 ReactDOM.render(
     <App
       rentOffers={offers}
-      rentOffersCount={offers.length}
     />,
     document.querySelector(`#root`)
 );

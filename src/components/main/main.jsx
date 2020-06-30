@@ -3,7 +3,7 @@ import PlacesList from "../places-list/places-list.jsx";
 
 import PropTypes from "prop-types";
 
-const Main = ({rentOffers, rentOffersCount, onCardTitleClick}) => {
+const Main = ({rentOffers, onCardTitleClick}) => {
   return (
     <div className="page page--gray page--main">
       <header className="header">
@@ -71,7 +71,7 @@ const Main = ({rentOffers, rentOffersCount, onCardTitleClick}) => {
           <div className="cities__places-container container">
             <section className="cities__places places">
               <h2 className="visually-hidden">Places</h2>
-              <b className="places__found">{rentOffersCount} places to stay in Amsterdam</b>
+              <b className="places__found">{rentOffers.length} places to stay in Amsterdam</b>
               <form className="places__sorting" action="#" method="get">
                 <span className="places__sorting-caption">Sort by</span>
                 <span className="places__sorting-type" tabIndex="0">
@@ -126,7 +126,6 @@ Main.propTypes = {
         isPremium: PropTypes.bool.isRequired,
       })
   ).isRequired,
-  rentOffersCount: PropTypes.number.isRequired,
   onCardTitleClick: PropTypes.func.isRequired,
 };
 
