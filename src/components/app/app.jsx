@@ -31,7 +31,6 @@ App.propTypes = {
       })
   ).isRequired,
   rentOffersCount: PropTypes.number.isRequired,
-  onCardTitleClick: PropTypes.func.isRequired,
 };
 
 export default App;
