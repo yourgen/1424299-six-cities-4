@@ -1,9 +1,9 @@
 import React from "react";
-import PlaceCard from "../place-card/place-card.jsx";
+import PlacesList from "../places-list/places-list.jsx";
 
 import PropTypes from "prop-types";
 
-const Main = ({rentOffers, rentOffersCount, onCardTitleClick}) => {
+const Main = ({rentOffers, onCardTitleClick}) => {
   return (
     <div className="page page--gray page--main">
       <header className="header">
@@ -71,7 +71,7 @@ const Main = ({rentOffers, rentOffersCount, onCardTitleClick}) => {
           <div className="cities__places-container container">
             <section className="cities__places places">
               <h2 className="visually-hidden">Places</h2>
-              <b className="places__found">{rentOffersCount} places to stay in Amsterdam</b>
+              <b className="places__found">{rentOffers.length} places to stay in Amsterdam</b>
               <form className="places__sorting" action="#" method="get">
                 <span className="places__sorting-caption">Sort by</span>
                 <span className="places__sorting-type" tabIndex="0">
@@ -95,17 +95,11 @@ const Main = ({rentOffers, rentOffersCount, onCardTitleClick}) => {
                 </select> */}
 
               </form>
-              <div className="cities__places-list places__list tabs__content">
-                {rentOffers.map((rentOffer) => {
-                  return (
-                    <PlaceCard
-                      key = {rentOffer.id}
-                      rentOfferTitle={rentOffer.title}
-                      onCardTitleClick={onCardTitleClick}
-                    />
-                  );
-                })}
-              </div>
+
+              <PlacesList
+                rentOffers={rentOffers}
+                onCardTitleClick={onCardTitleClick}
+              />
             </section>
             <div className="cities__right-section">
               <section className="cities__map map"></section>
@@ -121,10 +115,17 @@ Main.propTypes = {
   rentOffers: PropTypes.arrayOf(
       PropTypes.shape({
         id: PropTypes.string.isRequired,
-        title: PropTypes.string.isRequired
+        title: PropTypes.string.isRequired,
+        img: PropTypes.shape({
+          src: PropTypes.string.isRequired,
+          alt: PropTypes.string.isRequired,
+        }).isRequired,
+        price: PropTypes.string.isRequired,
+        type: PropTypes.string.isRequired,
+        rating: PropTypes.number.isRequired,
+        isPremium: PropTypes.bool.isRequired,
       })
   ).isRequired,
-  rentOffersCount: PropTypes.number.isRequired,
   onCardTitleClick: PropTypes.func.isRequired,
 };
 

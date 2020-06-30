@@ -226,6 +226,7 @@ exports[`Render App 1`] = `
           >
             <article
               className="cities__place-card place-card"
+              onMouseOver={[Function]}
             >
               <div
                 className="place-card__mark"
@@ -261,7 +262,8 @@ exports[`Render App 1`] = `
                     <b
                       className="place-card__price-value"
                     >
-                      €120
+                      €
+                      450
                     </b>
                     <span
                       className="place-card__price-text"
@@ -298,7 +300,7 @@ exports[`Render App 1`] = `
                     <span
                       style={
                         Object {
-                          "width": "80%",
+                          "width": "70%",
                         }
                       }
                     />
@@ -322,20 +324,15 @@ exports[`Render App 1`] = `
                 <p
                   className="place-card__type"
                 >
-                  Apartment
+                  Hotel
                 </p>
               </div>
             </article>
             <article
               className="cities__place-card place-card"
+              onMouseOver={[Function]}
             >
-              <div
-                className="place-card__mark"
-              >
-                <span>
-                  Premium
-                </span>
-              </div>
+              
               <div
                 className="cities__image-wrapper place-card__image-wrapper"
               >
@@ -346,7 +343,7 @@ exports[`Render App 1`] = `
                     alt="Place image"
                     className="place-card__image"
                     height="200"
-                    src="img/apartment-01.jpg"
+                    src="img/apartment-02.jpg"
                     width="260"
                   />
                 </a>
@@ -363,7 +360,8 @@ exports[`Render App 1`] = `
                     <b
                       className="place-card__price-value"
                     >
-                      €120
+                      €
+                      120
                     </b>
                     <span
                       className="place-card__price-text"
@@ -400,7 +398,7 @@ exports[`Render App 1`] = `
                     <span
                       style={
                         Object {
-                          "width": "80%",
+                          "width": "60%",
                         }
                       }
                     />
@@ -424,12 +422,13 @@ exports[`Render App 1`] = `
                 <p
                   className="place-card__type"
                 >
-                  Apartment
+                  Private Room
                 </p>
               </div>
             </article>
             <article
               className="cities__place-card place-card"
+              onMouseOver={[Function]}
             >
               <div
                 className="place-card__mark"
@@ -448,7 +447,7 @@ exports[`Render App 1`] = `
                     alt="Place image"
                     className="place-card__image"
                     height="200"
-                    src="img/apartment-01.jpg"
+                    src="img/apartment-03.jpg"
                     width="260"
                   />
                 </a>
@@ -465,7 +464,8 @@ exports[`Render App 1`] = `
                     <b
                       className="place-card__price-value"
                     >
-                      €120
+                      €
+                      570
                     </b>
                     <span
                       className="place-card__price-text"
@@ -502,7 +502,7 @@ exports[`Render App 1`] = `
                     <span
                       style={
                         Object {
-                          "width": "80%",
+                          "width": "90%",
                         }
                       }
                     />
@@ -526,20 +526,15 @@ exports[`Render App 1`] = `
                 <p
                   className="place-card__type"
                 >
-                  Apartment
+                  House
                 </p>
               </div>
             </article>
             <article
               className="cities__place-card place-card"
+              onMouseOver={[Function]}
             >
-              <div
-                className="place-card__mark"
-              >
-                <span>
-                  Premium
-                </span>
-              </div>
+              
               <div
                 className="cities__image-wrapper place-card__image-wrapper"
               >
@@ -567,7 +562,8 @@ exports[`Render App 1`] = `
                     <b
                       className="place-card__price-value"
                     >
-                      €120
+                      €
+                      150
                     </b>
                     <span
                       className="place-card__price-text"
