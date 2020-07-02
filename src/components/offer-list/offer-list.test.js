@@ -1,11 +1,11 @@
 import React from "react";
 import renderer from "react-test-renderer";
-import PlacesList from "./places-list.jsx";
+import OfferList from "./offer-list.jsx";
 import testDataOffers from "../../test-data.js";
 
-it(`Render PlacesList`, () => {
+it(`Render OfferList`, () => {
   const tree = renderer
-    .create(<PlacesList
+    .create(<OfferList
       rentOffers={testDataOffers}
       onCardTitleClick={() => {}}
     />)

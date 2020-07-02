@@ -1,9 +1,9 @@
 import React, {PureComponent} from "react";
-import PlaceCard from "../place-card/place-card.jsx";
+import OfferCard from "../offer-card/offer-card.jsx";
 
 import PropTypes from "prop-types";
 
-class PlacesList extends PureComponent {
+class OfferList extends PureComponent {
   constructor(props) {
     super(props);
     this.state = {
@@ -19,7 +19,7 @@ class PlacesList extends PureComponent {
       <div className="cities__places-list places__list tabs__content">
         {rentOffers.map((rentOffer) => {
           return (
-            <PlaceCard
+            <OfferCard
               key = {rentOffer.id}
               rentOffer={rentOffer}
               onCardTitleClick={onCardTitleClick}
@@ -38,7 +38,7 @@ class PlacesList extends PureComponent {
   }
 }
 
-PlacesList.propTypes = {
+OfferList.propTypes = {
   rentOffers: PropTypes.arrayOf(
       PropTypes.shape({
         id: PropTypes.string.isRequired,
@@ -56,4 +56,4 @@ PlacesList.propTypes = {
   onCardTitleClick: PropTypes.func.isRequired,
 };
 
-export default PlacesList;
+export default OfferList;

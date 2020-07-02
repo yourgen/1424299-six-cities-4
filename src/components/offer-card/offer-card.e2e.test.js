@@ -1,7 +1,7 @@
 import React from "react";
 import Enzyme, {shallow} from "enzyme";
 import Adapter from "enzyme-adapter-react-16";
-import PlaceCard from "./place-card.jsx";
+import OfferCard from "./offer-card.jsx";
 import testDataOffers from "../../test-data.js";
 
 const testDataOffer = testDataOffers[0];
@@ -15,7 +15,7 @@ it(`Should offer data get in mouseOver handler`, () => {
   const onCardMouseOver = jest.fn();
 
   const placeCard = shallow(
-      <PlaceCard
+      <OfferCard
         key = {testDataOffer.id}
         rentOffer={testDataOffer}
         onCardTitleClick={onCardTitleClick}

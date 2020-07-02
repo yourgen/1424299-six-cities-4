@@ -1,13 +1,13 @@
 import React from "react";
 import renderer from "react-test-renderer";
-import PlaceCard from "./place-card.jsx";
+import OfferCard from "./offer-card.jsx";
 import testDataOffers from "../../test-data.js";
 
 const testDataOffer = testDataOffers[0];
 
-it(`Render PlaceCard`, () => {
+it(`Render OfferCard`, () => {
   const tree = renderer
-    .create(<PlaceCard
+    .create(<OfferCard
       rentOffer={testDataOffer}
       onCardTitleClick={() => {}}
       onCardMouseOver={() => {}}
