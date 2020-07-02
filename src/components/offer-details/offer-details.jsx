@@ -2,6 +2,8 @@ import React from "react";
 
 // import PropTypes from "prop-types";
 
+const rating = 80; // temporal data
+
 const OfferDetails = ({}) => {
   return (
     <main className="page__main page__main--property">
@@ -46,7 +48,7 @@ const OfferDetails = ({}) => {
             </div>
             <div className="property__rating rating">
               <div className="property__stars rating__stars">
-                <span style="width: 80%"></span>
+                <span style={{width: `${rating}%`}}></span>
                 <span className="visually-hidden">Rating</span>
               </div>
               <span className="property__rating-value rating__value">4.8</span>
@@ -135,7 +137,7 @@ const OfferDetails = ({}) => {
                   <div className="reviews__info">
                     <div className="reviews__rating rating">
                       <div className="reviews__stars rating__stars">
-                        <span style="width: 80%"></span>
+                        <span style={{width: `${rating}%`}}></span>
                         <span className="visually-hidden">Rating</span>
                       </div>
                     </div>
@@ -222,7 +224,7 @@ const OfferDetails = ({}) => {
                 </div>
                 <div className="place-card__rating rating">
                   <div className="place-card__stars rating__stars">
-                    <span style="width: 80%"></span>
+                    <span style={{width: `${rating}%`}}></span>
                     <span className="visually-hidden">Rating</span>
                   </div>
                 </div>
@@ -254,7 +256,7 @@ const OfferDetails = ({}) => {
                 </div>
                 <div className="place-card__rating rating">
                   <div className="place-card__stars rating__stars">
-                    <span style="width: 80%"></span>
+                    <span style={{width: `${rating}%`}}></span>
                     <span className="visually-hidden">Rating</span>
                   </div>
                 </div>
@@ -286,7 +288,7 @@ const OfferDetails = ({}) => {
                 </div>
                 <div className="place-card__rating rating">
                   <div className="place-card__stars rating__stars">
-                    <span style="width: 100%"></span>
+                    <span style={{width: `${rating}%`}}></span>
                     <span className="visually-hidden">Rating</span>
                   </div>
                 </div>
