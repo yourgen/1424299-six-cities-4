@@ -13,9 +13,7 @@ class App extends PureComponent {
 
   }
 
-  _renderApp() {
-    const {rentOffers} = this.props;
-
+  _renderApp(rentOffers) {
     return (
       <Main
         rentOffers={rentOffers}
@@ -25,14 +23,17 @@ class App extends PureComponent {
   }
 
   render() {
+    const {rentOffers} = this.props;
     return (
       <BrowserRouter>
         <Switch>
           <Route exact path="/">
-            {this._renderApp()}
+            {this._renderApp(rentOffers)}
           </Route>
           <Route exact path="/offer-details">
-            <OfferDetails/>
+            <OfferDetails
+              rentOffer={rentOffers[0]}
+            />
           </Route>
         </Switch>
       </BrowserRouter>

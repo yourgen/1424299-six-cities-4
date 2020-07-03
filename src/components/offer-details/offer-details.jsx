@@ -1,44 +1,31 @@
 import React from "react";
 
-// import PropTypes from "prop-types";
+import PropTypes from "prop-types";
 
-const rating = 80; // temporal data
-
-const OfferDetails = ({}) => {
+const OfferDetails = ({id, title, img, price, type, rating, isPremium, description, photos, host, bedroomCount, maxGuestCount, amenities}) => {
   return (
     <main className="page__main page__main--property">
       <section className="property">
         <div className="property__gallery-container container">
           <div className="property__gallery">
-            <div className="property__image-wrapper">
-              <img className="property__image" src="img/room.jpg" alt="Photo studio"/>
-            </div>
-            <div className="property__image-wrapper">
-              <img className="property__image" src="img/apartment-01.jpg" alt="Photo studio"/>
-            </div>
-            <div className="property__image-wrapper">
-              <img className="property__image" src="img/apartment-02.jpg" alt="Photo studio"/>
-            </div>
-            <div className="property__image-wrapper">
-              <img className="property__image" src="img/apartment-03.jpg" alt="Photo studio"/>
-            </div>
-            <div className="property__image-wrapper">
-              <img className="property__image" src="img/studio-01.jpg" alt="Photo studio"/>
-            </div>
-            <div className="property__image-wrapper">
-              <img className="property__image" src="img/apartment-01.jpg" alt="Photo studio"/>
-            </div>
+            {photos.map((photo, i) => {
+              return (
+                <React.Fragment key={id + i}>
+                  <div className="property__image-wrapper">
+                    <img className="property__image" src={photo.src} alt={photo.alt}/>
+                  </div>
+                </React.Fragment>
+              );
+            })}
           </div>
         </div>
         <div className="property__container container">
           <div className="property__wrapper">
-            <div className="property__mark">
+            {isPremium ? <div className="property__mark">
               <span>Premium</span>
-            </div>
+            </div> : null}
             <div className="property__name-wrapper">
-              <h1 className="property__name">
-                Beautiful &amp; luxurious studio at great location
-              </h1>
+              <h1 className="property__name">{title}</h1>
               <button className="property__bookmark-button button" type="button">
                 <svg className="property__bookmark-icon" width="31" height="33">
                   <use xlinkHref="#icon-bookmark"></use>
@@ -51,17 +38,25 @@ const OfferDetails = ({}) => {
                 <span style={{width: `${rating}%`}}></span>
                 <span className="visually-hidden">Rating</span>
               </div>
-              <span className="property__rating-value rating__value">4.8</span>
+              <span className="property__rating-value rating__value">{
+                (rating / 5).toFixed(1)
+              }</span>
             </div>
             <ul className="property__features">
               <li className="property__feature property__feature--entire">
-                Apartment
+                {type}
               </li>
               <li className="property__feature property__feature--bedrooms">
-                3 Bedrooms
+                {
+                  bedroomCount
+                  // TODO convert bedroom
+                } Bedrooms
               </li>
               <li className="property__feature property__feature--adults">
-                Max 4 adults
+                Max {
+                  maxGuestCount
+                  // TODO convert guest count
+                } adults
               </li>
             </ul>
             <div className="property__price">
@@ -71,55 +66,40 @@ const OfferDetails = ({}) => {
             <div className="property__inside">
               <h2 className="property__inside-title">What&apos;s inside</h2>
               <ul className="property__inside-list">
-                <li className="property__inside-item">
-                  Wi-Fi
-                </li>
-                <li className="property__inside-item">
-                  Washing machine
-                </li>
-                <li className="property__inside-item">
-                  Towels
-                </li>
-                <li className="property__inside-item">
-                  Heating
-                </li>
-                <li className="property__inside-item">
-                  Coffee machine
-                </li>
-                <li className="property__inside-item">
-                  Baby seat
-                </li>
-                <li className="property__inside-item">
-                  Kitchen
-                </li>
-                <li className="property__inside-item">
-                  Dishwasher
-                </li>
-                <li className="property__inside-item">
-                  Cabel TV
-                </li>
-                <li className="property__inside-item">
-                  Fridge
-                </li>
+                {amenities.map((amenity, i) => {
+                  return (
+                    <React.Fragment key={id + i}>
+                      <li className="property__inside-item">
+                        {amenity}
+                      </li>
+                    </React.Fragment>
+                  );
+                })}
               </ul>
             </div>
             <div className="property__host">
               <h2 className="property__host-title">Meet the host</h2>
               <div className="property__host-user user">
-                <div className="property__avatar-wrapper property__avatar-wrapper--pro user__avatar-wrapper">
-                  <img className="property__avatar user__avatar" src="img/avatar-angelina.jpg" width="74" height="74" alt="Host avatar"/>
+                <div className={`
+                  property__avatar-wrapper user__avatar-wrapper
+                  ${host.isSuper ? `property__avatar-wrapper--pro` : null} 
+                `}>
+                  <img className="property__avatar user__avatar" src={host.avatar.src} width="74" height="74" alt={host.avatar.alt}/>
                 </div>
                 <span className="property__user-name">
-                  Angelina
+                  {host.name}
                 </span>
               </div>
               <div className="property__description">
-                <p className="property__text">
-                  A quiet cozy and picturesque that hides behind a a river by the unique lightness of Amsterdam. The building is green and from 18th century.
-                </p>
-                <p className="property__text">
-                  An independent House, strategically located between Rembrand Square and National Opera, but where the bustle of the city comes to rest in this alley flowery and colorful.
-                </p>
+                {description.map((sentence, i) => {
+                  return (
+                    <React.Fragment key={id + i}>
+                      <p className="property__text">
+                        {sentence}
+                      </p>
+                    </React.Fragment>
+                  );
+                })}
               </div>
             </div>
             <section className="property__reviews reviews">
@@ -137,7 +117,7 @@ const OfferDetails = ({}) => {
                   <div className="reviews__info">
                     <div className="reviews__rating rating">
                       <div className="reviews__stars rating__stars">
-                        <span style={{width: `${rating}%`}}></span>
+                        <span style={{width: `100%`}}></span>
                         <span className="visually-hidden">Rating</span>
                       </div>
                     </div>
@@ -305,4 +285,39 @@ const OfferDetails = ({}) => {
   );
 };
 
+/* OfferDetails.propTypes = {
+  rentOffer: PropTypes.shape({
+    id: PropTypes.string.isRequired,
+    title: PropTypes.string.isRequired,
+    img: PropTypes.shape({
+      src: PropTypes.string.isRequired,
+      alt: PropTypes.string.isRequired,
+    }).isRequired,
+    price: PropTypes.string.isRequired,
+    type: PropTypes.string.isRequired,
+    rating: PropTypes.number.isRequired,
+    isPremium: PropTypes.bool.isRequired,
+  }),
+  onCardTitleClick: PropTypes.func.isRequired,
+  onCardMouseOver: PropTypes.func.isRequired,
+  description: PropTypes.array.isRequired,
+  photos: PropTypes.arrayOf(
+      PropTypes.shape({
+        src: PropTypes.string.isRequired,
+        alt: PropTypes.string.isRequired,
+      })
+  ).isRequired,
+  host: PropTypes.shape({
+    name: PropTypes.string.isRequired,
+    avatar: PropTypes.shape({
+      src: PropTypes.string.isRequired,
+      alt: PropTypes.string.isRequired,
+    }),
+    isSuper: PropTypes.bool.isRequired,
+  }).isRequired,
+  bedroomCount: PropTypes.number.isRequired,
+  maxGuestCount: PropTypes.number.isRequired,
+  amenities: PropTypes.array.isRequired
+};
+ */
 export default OfferDetails;
