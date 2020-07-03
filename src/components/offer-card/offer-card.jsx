@@ -47,7 +47,10 @@ class OfferCard extends PureComponent {
           <h2 className="place-card__name">
             <a
               href="#"
-              onClick={onCardTitleClick}
+              onClick={(e) => {
+                e.preventDefault();
+                onCardTitleClick(rentOffer);
+              }}
             >{title}</a>
           </h2>
           <p className="place-card__type">{offerTypesMap[type]}</p>

@@ -5,21 +5,35 @@ import OfferDetails from "../offer-details/offer-details.jsx";
 
 import PropTypes from "prop-types";
 
-const handleCardTitleClick = () => {};
-
 class App extends PureComponent {
   constructor(props) {
     super(props);
-
+    this.state = {
+      detailedOffer: null
+    };
+    this.handleCardTitleClick = this.handleCardTitleClick.bind(this);
   }
 
   _renderApp(rentOffers) {
+    if (this.state.detailedOffer) {
+      return (
+        <OfferDetails
+          rentOffer={this.state.detailedOffer}
+        />
+      );
+    }
     return (
       <Main
         rentOffers={rentOffers}
-        onCardTitleClick={handleCardTitleClick}
+        onCardTitleClick={this.handleCardTitleClick}
       />
     );
+  }
+
+  handleCardTitleClick(rentOffer) {
+    this.setState({
+      detailedOffer: rentOffer
+    });
   }
 
   render() {
