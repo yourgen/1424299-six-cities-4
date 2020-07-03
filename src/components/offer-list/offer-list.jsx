@@ -9,7 +9,13 @@ class OfferList extends PureComponent {
     this.state = {
       activeCard: null
     };
-    this._handleCardMouseOver = this._handleCardMouseOver.bind(this);
+    this.handleCardMouseOver = this.handleCardMouseOver.bind(this);
+  }
+
+  handleCardMouseOver(rentOffer) {
+    this.setState({
+      activeCard: rentOffer
+    });
   }
 
   render() {
@@ -23,18 +29,12 @@ class OfferList extends PureComponent {
               key = {rentOffer.id}
               rentOffer={rentOffer}
               onCardTitleClick={onCardTitleClick}
-              onCardMouseOver={this._handleCardMouseOver}
+              onCardMouseOver={this.handleCardMouseOver}
             />
           );
         })}
       </div>
     );
-  }
-
-  _handleCardMouseOver(rentOffer) {
-    this.setState({
-      activeCard: rentOffer
-    });
   }
 }
 
