@@ -1,13 +1,14 @@
 import React from "react";
 import renderer from "react-test-renderer";
-import Main from "./main.jsx";
+import OfferDetails from "./offer-details.jsx";
 import testDataOffers from "../../test-data.js";
 
-it(`Render Main`, () => {
+const testDataOffer = testDataOffers[0];
+
+it(`Render OfferDetails`, () => {
   const tree = renderer
-    .create(<Main
-      rentOffers={testDataOffers}
-      onCardTitleClick={() => {}}
+    .create(<OfferDetails
+      rentOffer={testDataOffer}
     />)
     .toJSON();
 

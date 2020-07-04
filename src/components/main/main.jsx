@@ -1,5 +1,5 @@
 import React from "react";
-import PlacesList from "../places-list/places-list.jsx";
+import OfferList from "../offer-list/offer-list.jsx";
 
 import PropTypes from "prop-types";
 
@@ -96,7 +96,7 @@ const Main = ({rentOffers, onCardTitleClick}) => {
 
               </form>
 
-              <PlacesList
+              <OfferList
                 rentOffers={rentOffers}
                 onCardTitleClick={onCardTitleClick}
               />

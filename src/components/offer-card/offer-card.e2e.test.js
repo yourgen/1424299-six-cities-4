@@ -1,10 +1,10 @@
 import React from "react";
 import Enzyme, {shallow} from "enzyme";
 import Adapter from "enzyme-adapter-react-16";
-import PlaceCard from "./place-card.jsx";
-import TEST_DATA_OFFERS from "../../test-data.js";
+import OfferCard from "./offer-card.jsx";
+import testDataOffers from "../../test-data.js";
 
-const TEST_DATA_OFFER = TEST_DATA_OFFERS[0];
+const testDataOffer = testDataOffers[0];
 
 Enzyme.configure({
   adapter: new Adapter(),
@@ -15,9 +15,9 @@ it(`Should offer data get in mouseOver handler`, () => {
   const onCardMouseOver = jest.fn();
 
   const placeCard = shallow(
-      <PlaceCard
-        key = {TEST_DATA_OFFER.id}
-        rentOffer={TEST_DATA_OFFER}
+      <OfferCard
+        key = {testDataOffer.id}
+        rentOffer={testDataOffer}
         onCardTitleClick={onCardTitleClick}
         onCardMouseOver={onCardMouseOver}
       />
@@ -26,5 +26,5 @@ it(`Should offer data get in mouseOver handler`, () => {
   placeCard.find(`.place-card`).props().onMouseOver();
 
   expect(onCardMouseOver).toHaveBeenCalledTimes(1);
-  expect(onCardMouseOver.mock.calls[0][0]).toMatchObject(TEST_DATA_OFFER);
+  expect(onCardMouseOver.mock.calls[0][0]).toMatchObject(testDataOffer);
 });

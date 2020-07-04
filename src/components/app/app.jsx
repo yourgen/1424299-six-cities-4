@@ -1,18 +1,59 @@
-import React from "react";
+import React, {PureComponent} from "react";
+import {Switch, Route, BrowserRouter} from "react-router-dom";
 import Main from "../main/main.jsx";
+import OfferDetails from "../offer-details/offer-details.jsx";
 
 import PropTypes from "prop-types";
 
-const handleCardTitleClick = () => {};
+class App extends PureComponent {
+  constructor(props) {
+    super(props);
+    this.state = {
+      detailedOffer: null
+    };
+    this.handleCardTitleClick = this.handleCardTitleClick.bind(this);
+  }
 
-const App = ({rentOffers}) => {
-  return (
-    <Main
-      rentOffers={rentOffers}
-      onCardTitleClick={handleCardTitleClick}
-    />
-  );
-};
+  _renderApp(rentOffers) {
+    if (this.state.detailedOffer) {
+      return (
+        <OfferDetails
+          rentOffer={this.state.detailedOffer}
+        />
+      );
+    }
+    return (
+      <Main
+        rentOffers={rentOffers}
+        onCardTitleClick={this.handleCardTitleClick}
+      />
+    );
+  }
+
+  handleCardTitleClick(rentOffer) {
+    this.setState({
+      detailedOffer: rentOffer
+    });
+  }
+
+  render() {
+    const {rentOffers} = this.props;
+    return (
+      <BrowserRouter>
+        <Switch>
+          <Route exact path="/">
+            {this._renderApp(rentOffers)}
+          </Route>
+          <Route exact path="/offer-details">
+            <OfferDetails
+              rentOffer={rentOffers[0]}
+            />
+          </Route>
+        </Switch>
+      </BrowserRouter>
+    );
+  }
+}
 
 App.propTypes = {
   rentOffers: PropTypes.arrayOf(

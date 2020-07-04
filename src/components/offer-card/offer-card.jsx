@@ -2,7 +2,7 @@ import React, {PureComponent} from "react";
 import PropTypes from "prop-types";
 import {offerTypesMap} from "../../const.js";
 
-class PlaceCard extends PureComponent {
+class OfferCard extends PureComponent {
   constructor(props) {
     super(props);
 
@@ -47,7 +47,10 @@ class PlaceCard extends PureComponent {
           <h2 className="place-card__name">
             <a
               href="#"
-              onClick={onCardTitleClick}
+              onClick={(e) => {
+                e.preventDefault();
+                onCardTitleClick(rentOffer);
+              }}
             >{title}</a>
           </h2>
           <p className="place-card__type">{offerTypesMap[type]}</p>
@@ -57,7 +60,7 @@ class PlaceCard extends PureComponent {
   }
 }
 
-PlaceCard.propTypes = {
+OfferCard.propTypes = {
   rentOffer: PropTypes.shape({
     id: PropTypes.string.isRequired,
     title: PropTypes.string.isRequired,
@@ -74,4 +77,4 @@ PlaceCard.propTypes = {
   onCardMouseOver: PropTypes.func.isRequired,
 };
 
-export default PlaceCard;
+export default OfferCard;

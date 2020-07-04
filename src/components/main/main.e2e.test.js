@@ -2,7 +2,7 @@ import React from "react";
 import Enzyme, {shallow} from "enzyme";
 import Adapter from "enzyme-adapter-react-16";
 import Main from "./main.jsx";
-import TEST_DATA_OFFERS from "../../test-data.js";
+import testDataOffers from "../../test-data.js";
 
 Enzyme.configure({
   adapter: new Adapter(),
@@ -13,8 +13,7 @@ it(`Should header button be pressed`, () => {
 
   const main = shallow(
       <Main
-        rentOffers={TEST_DATA_OFFERS}
-        rentOffersCount={TEST_DATA_OFFERS.length}
+        rentOffers={testDataOffers}
         onCardTitleClick={onCardTitleClick}
       />
   );
