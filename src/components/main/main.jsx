@@ -1,5 +1,6 @@
 import React from "react";
 import OfferList from "../offer-list/offer-list.jsx";
+import Map from "../map/map.jsx";
 
 import PropTypes from "prop-types";
 
@@ -102,7 +103,7 @@ const Main = ({rentOffers, onCardTitleClick}) => {
               />
             </section>
             <div className="cities__right-section">
-              <section className="cities__map map"></section>
+              <Map />
             </div>
           </div>
         </div>
